@@ -20,10 +20,11 @@ Y CANVAS para desarrollarel juego. En donde iran cayendo meteoritos, el jugador 
 ## Estructuras de Datos
 
 Definicion de clases y métodos.
-Main.js: Generar con DOM la pantalla inicial, la pantalla del juego y la pantalla de GameOver --> Build DOM() // buildGameScreen() buildSplashScreen() buildGameOverScreen ()
-Game.js: Start() GameOver() enemies[], player 
-Player.js: PosicionX, PosicionY, DireccionDisparo, TamañoObjeto, Color // Update() Draw () Disparar() CheckearColision ()
-Enemy.js: PosicionX, PosicionY, DireccionCaida, Velocidad, TamañoObjeto // Update() Draw() Remove()
+
+- Main.js: Generar con DOM la pantalla inicial, la pantalla del juego y la pantalla de GameOver --> Build DOM() // buildGameScreen() buildSplashScreen() buildGameOverScreen ()
+- Game.js: Start() GameOver() enemies[], player 
+- Player.js: PosicionX, PosicionY, DireccionDisparo, TamañoObjeto, Color // Update() Draw () Disparar() CheckearColision ()
+- Enemy.js: PosicionX, PosicionY, DireccionCaida, Velocidad, TamañoObjeto // Update() Draw() Remove()
 
 ## States y States Transitions
 
