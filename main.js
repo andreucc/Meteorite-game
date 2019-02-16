@@ -68,11 +68,23 @@ const main = () => {
         game.player.setDirection(1);
       } else if (event.code === 'ArrowLeft') {
         game.player.setDirection(-1);
-      };
+      } 
     };
 
-    document.addEventListener('keydown', setPlayerDirection)
-  
+    const keyShoot = (event) => {
+      if (event.code === 'KeyS') {
+      return game.shoot.push(game.player.shoot());
+    } else if (event.code === 'ArrowRight') {
+      game.player.setDirection(0);
+    } else if (event.code === 'ArrowLeft') {
+      game.player.setDirection(0);
+    }
+  };
+
+
+
+    document.addEventListener('keydown', setPlayerDirection);
+    document.addEventListener('keyup', keyShoot);
   }
 
 const buildGameOver = () => {

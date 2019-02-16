@@ -18,8 +18,6 @@ class Enemy {
   draw() {
     this.ctx.fillStyle = 'red';
     this.ctx.fillRect(this.x, this.y - this.size / 2, this.size, this.size);
-    //this.ctx.arc(this.x, this.y, 20, 0, Math.PI*2, false);
-    //this.ctx.fill();
   };
 
   checkImpact() {

@@ -7,6 +7,7 @@ class Game{
     this.player;
     this.enemies = [];
     this.gameOver = false;
+    this.shoot = [];
   };
 
 
@@ -15,6 +16,7 @@ class Game{
     this.player = new Player(this.canvas);
     const x = Math.random() * this.canvas.width;
     this.enemies.push(new Enemy(this.canvas, x));
+    
     const loop = () => {
       /*
       if(Math.random() > 0.99) {
@@ -35,10 +37,23 @@ class Game{
     window.requestAnimationFrame(loop);
   };
 
+  drawCanvas() {
+    this.player.draw();
+    this.enemies.forEach((enemy) => {
+      enemy.draw();
+    });
+    this.shoot.forEach((shoot) => {
+      shoot.draw();
+    })
+  };
+  
   updateCanvas() {
     this.player.update();
     this.enemies.forEach((enemy) => {
       enemy.update();
+    });
+    this.shoot.forEach((shoot) => {
+      shoot.update();
     });
   };
 
@@ -46,27 +61,23 @@ class Game{
     this.ctx.clearRect(0,0,this.canvas.width, this.canvas.height);
   };
 
-  drawCanvas() {
-    this.player.draw();
-    this.enemies.forEach((enemy) => {
-      enemy.draw();
-    });
-  };
-  
+
   checkAllCollisions() {
     this.player.checkScreen();
-    this.enemies.forEach((enemy) =>{
+    /*this.enemies.forEach((enemy) =>{
       if (this.player.checkCollisionEnemy(enemy) || enemy.checkImpact() === true) {
         this.gameOver = true;
         this.onGameOver();
       };
-    });
-    /*this.enemies.forEach((enemy) => {
-      if (enemy.checkImpact() === true) {
-        this.gameOver = true;
-        this.onGameOver();
+    });*/
+    /*this.shoot.forEach((shoot) => {
+      if (this.shoot.checkShootEnemy(enemy)) {
+        this.enemy.filter((shoot) => {
+          this.enemy.delete();
+        })
       }
-    })*/
+    }*/
+
   }
   
   gameOverCallback(callback) {

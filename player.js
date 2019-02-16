@@ -7,7 +7,7 @@ class Player{
     this.ctx = this.canvas.getContext('2d');
     this.x = this.canvas.width/2;
     this.y = this.canvas.height-this.size;
-    this.speed = 5;
+    this.speed = 10;
     this.direction = 0;
   }
 
@@ -25,12 +25,14 @@ class Player{
   }
 
   checkScreen() {
-    if (this.x - this.size/2 <= 0) {
-      this.direction = 1;
-    } else if (this.x + this.size/2 >= this.canvas.width) {
-      this.direction = -1;
-    };
+    if (this.x <= 0+this.speed || this.x >= this.canvas.width+this.speed){
+      this.direction = -this.direction;
+    }
   };
+
+  shoot () {
+    return new Shoot(this.canvas, this.x+this.size/2, this.y); 
+  }  
 
   checkCollisionEnemy(enemy) {
     const collideRight = this.x + this.size / 2 > enemy.x - enemy.size/ 2;
