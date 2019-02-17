@@ -63,43 +63,45 @@ const main = () => {
 
     game.startLoop();
 
-    const setPlayerDirection = (event) => {
+    const setPlayerDirectionMove = (event) => {
       if (event.code === 'ArrowRight') {
         game.player.setDirection(1);
       } else if (event.code === 'ArrowLeft') {
         game.player.setDirection(-1);
-      } 
+      }; 
     };
 
-    const keyShoot = (event) => {
+    const setPlatyerDirectionStop = (event) => {
+      if (event.code === 'ArrowRight') {
+        game.player.setDirection(0);
+      } else if (event.code === 'ArrowLeft') {
+        game.player.setDirection(0);
+      };
+    };
+
+    const shooting = (event) => {
       if (event.code === 'KeyS') {
-      return game.shoot.push(game.player.shoot());
-    } else if (event.code === 'ArrowRight') {
-      game.player.setDirection(0);
-    } else if (event.code === 'ArrowLeft') {
-      game.player.setDirection(0);
-    }
+        return game.shoots.push(game.player.shoot());
+      };
+    };
+
+    document.addEventListener('keypress', shooting)
+    document.addEventListener('keydown', setPlayerDirectionMove);
+    document.addEventListener('keyup', setPlatyerDirectionStop);
   };
 
-
-
-    document.addEventListener('keydown', setPlayerDirection);
-    document.addEventListener('keyup', keyShoot);
-  }
-
-const buildGameOver = () => {
-  const gameOverScreen = buildDom(`
-    <section class="game-over">
-      <h1>You fail and the city is destroyed</h1>
-      <button id="cd">Try it Again</button>  
-    </section>
-  `);
+  const buildGameOver = () => {
+    const gameOverScreen = buildDom(`
+      <section class="game-over">
+        <h1>You fail and the city is destroyed</h1>
+        <button id="cd">Try it Again</button>  
+      </section>
+    `);
 
   
-  const restartButton = document.querySelector('button');
-  //const restartButton = document.getElementbyId('cd')  
-  restartButton.addEventListener('click', buildGameScreen);
-}
+    const restartButton = document.querySelector('button');  
+    restartButton.addEventListener('click', buildGameScreen);
+  }
 
   buildSplashScreen();
 };  
