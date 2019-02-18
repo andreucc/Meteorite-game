@@ -1,13 +1,15 @@
 class Shoot {
   constructor(canvas, x, y) {
     this.sizeX = 50;
-    this.sizeY = 10;
+    this.sizeY = 50;
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
     this.x = x;
     this.y = y;
     this.speed = 10;
     this.direction = -1;
+    this.imageShoot = new Image();
+    this.imageShoot.src = "./images/bomb.png"
   };
 
   update() {
@@ -15,8 +17,9 @@ class Shoot {
   };
 
   draw() {
-    this.ctx.fillStyle = 'black';
-    this.ctx.fillRect(this.x, this.y, this.sizeX, this.sizeY);
+    //this.ctx.fillStyle = 'black';
+    //this.ctx.fillRect(this.x, this.y, this.sizeX, this.sizeY);
+    this.ctx.drawImage(this.imageShoot, this.x, this.y, this.sizeX, this.sizeY)
   };
 
   outCanvasShoot() {

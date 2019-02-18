@@ -13,9 +13,7 @@ class Game{
 
 
   startLoop() {
-    this.player = new Player(this.canvas);
-    //const x = Math.random() * this.canvas.width;
-   // this.enemies.push(new Enemy(this.canvas, x));
+    this.player = new Player(this.canvas, 3);
     
     const loop = () => {
         
@@ -55,12 +53,6 @@ class Game{
     this.shoots.forEach((shoot) => {
       shoot.update();
     });
-    /* NOMES ES NECESSARI SI FICAM "VIDES" SINO ES GAMEOVER
-    this.enemies.forEach((enemy) => {
-     if (enemy.outCanvasEnemy()) {
-      this.enemies.splice(this.enemies.indexOf(enemy), 1);
-     }
-    })*/
     this.shoots.forEach((shoot) =>{
       if (shoot.outCanvasShoot()) {
         this.shoots.splice(this.shoots.indexOf(shoot), 1);
@@ -76,12 +68,25 @@ class Game{
   checkAllCollisions() {
     this.player.checkScreen();
     this.enemies.forEach((enemy) =>{
-      if (this.player.checkCollisionEnemy(enemy)/* || enemy.checkImpact() === true*/) {
-        this.gameOver = true;
-        this.onGameOver();
-      };
+      if (this.player.checkCollisionEnemy(enemy)) {
+        this.player.loseLive();
+        this.enemies.splice(this.enemies.indexOf(enemy), 1);
+        if (this.player.lives === 0) {
+          this.gameOver = true;
+          this.onGameOver();
+        }
+      }
     });
-    
+    this.enemies.forEach((enemy) => {
+      if (enemy.checkImpact()) {
+        this.player.loseLive();
+        this.enemies.splice(this.enemies.indexOf(enemy), 1);
+        if (this.player.lives === 0) {
+          this.gameOver = true;
+          this.onGameOver();
+        }
+      }
+    });
     this.enemies.forEach((enemy) =>{
       this.shoots.forEach((shoot) => {
         if (shoot.checkShootEnemy(enemy)){

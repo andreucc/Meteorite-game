@@ -9,6 +9,8 @@ class Enemy {
     this.y = 0;
     this.speed = 5;
     this.direction = 1;
+    this.imageEnemy = new Image();
+    this.imageEnemy.src = './images/meteorite.png'
   };
 
   update() {
@@ -16,8 +18,9 @@ class Enemy {
   };
 
   draw() {
-    this.ctx.fillStyle = 'red';
-    this.ctx.fillRect(this.x, this.y - this.size / 2, this.size, this.size);
+    //this.ctx.fillStyle = 'red';
+    //this.ctx.fillRect(this.x, this.y - this.size / 2, this.size, this.size);
+    this.ctx.drawImage(this.imageEnemy, this.x, this.y - this.size / 2, this.size, this.size);
   };
 
 /*  outCanvasEnemy() {

@@ -1,7 +1,7 @@
 'use strict';
 
 class Player{
-  constructor(canvas) {
+  constructor(canvas, lives) {
     this.size = 50;
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
@@ -9,6 +9,9 @@ class Player{
     this.y = this.canvas.height-this.size;
     this.speed = 20;
     this.direction = 0;
+    this.lives = lives;
+    this.imagePlayer = new Image();
+    this.imagePlayer.src = './images/spaceship.png';
   }
 
   update() {
@@ -16,8 +19,9 @@ class Player{
   };
 
   draw() {
-    this.ctx.fillStyle = 'green';
-    this.ctx.fillRect(this.x , this.y, this.size, this.size)
+    //this.ctx.fillStyle = 'green';
+    //this.ctx.fillRect(this.x , this.y, this.size, this.size)
+    this.ctx.drawImage(this.imagePlayer, this.x, this.y, this.size, this.size)
   }
 
   setDirection(direction) {
@@ -46,6 +50,10 @@ class Player{
       return true;
     }
     return false;
+  }
+
+  loseLive () {
+    this.lives--;
   }
 };
 
