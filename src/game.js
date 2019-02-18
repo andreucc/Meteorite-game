@@ -9,11 +9,12 @@ class Game{
     this.gameOver = false;
     this.shoots = [];
     this.score = 0;
+    this.lives = 3;
   };
 
 
   startLoop() {
-    this.player = new Player(this.canvas, 3);
+    this.player = new Player(this.canvas, this.lives);
     
     const loop = () => {
         
@@ -21,7 +22,7 @@ class Game{
         const x = Math.random() * this.canvas.width;
         this.enemies.push(new Enemy(this.canvas, x));
       };
-      
+      this.updateScore()
       this.checkAllCollisions();
       this.updateCanvas();
       this.clearCanvas();
@@ -67,6 +68,7 @@ class Game{
 
   checkAllCollisions() {
     this.player.checkScreen();
+    
     this.enemies.forEach((enemy) =>{
       if (this.player.checkCollisionEnemy(enemy)) {
         this.player.loseLive();
@@ -77,6 +79,7 @@ class Game{
         }
       }
     });
+
     this.enemies.forEach((enemy) => {
       if (enemy.checkImpact()) {
         this.player.loseLive();
@@ -87,6 +90,7 @@ class Game{
         }
       }
     });
+
     this.enemies.forEach((enemy) =>{
       this.shoots.forEach((shoot) => {
         if (shoot.checkShootEnemy(enemy)){
@@ -103,4 +107,8 @@ class Game{
     this.onGameOver = callback;
   }
 
+  gameUpdateScore(callback) {
+    this.updateScore = callback
+  }
+  
 };

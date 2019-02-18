@@ -58,21 +58,24 @@ const main = () => {
           <p id="player-lives">00</p>
         </div>  
       </header>
-        <section class="game-screen">
+        <section class="game-screen game">
+          <div id='stars'></div>
+          <div id='stars2'></div>
+          <div id='stars3'></div>
           <canvas></canvas>
+          <audio autoplay loop>
+            <source src="./sound/.mp3" type="audio/mpeg">
+          </audio>
         </section>
       <footer class="game-footer">
       </footer>
+      </section>
     `);
 
     const width = document.querySelector('.game-screen').offsetWidth;
     const height = document.querySelector('.game-screen').offsetHeight;
     const playerNameShow = document.getElementById('player-name');
     playerNameShow.innerHTML = name;
-    const scorePlayerShow = document.getElementById('score-player');
-    const playerLivesShow = document.getElementById('player-lives');
-    //playerLivesShow.innerHTML = game.player.lives;
-    //scorePlayerShow.innerHTML = game.score;
     const canvasElement = document.querySelector('canvas');
 
     canvasElement.setAttribute('width', width);
@@ -80,6 +83,15 @@ const main = () => {
 
     const game = new Game(canvasElement);
     game.gameOverCallback(buildGameOver);
+
+    game.gameUpdateScore(() => {
+       const scorePlayerShow = document.getElementById('score-player');
+       const playerLivesShow = document.getElementById('player-lives');
+       playerLivesShow.innerHTML = game.player.lives;
+       scorePlayerShow.innerHTML = game.score;
+    });
+
+
 
     game.startLoop();
     
@@ -110,6 +122,7 @@ const main = () => {
     document.addEventListener('keyup', setPlatyerDirectionStop);
   };
 
+  
   const buildGameOver = () => {
     const gameOverScreen = buildDom(`
       <section class="game-over">
