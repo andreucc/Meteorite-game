@@ -89,6 +89,7 @@ body {
   height: 85vh;
   overflow: hidden;
   margin-left: 100px;
+  margin-top: 20px;
   border: solid;
   border-color: white;
 }
