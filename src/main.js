@@ -69,7 +69,6 @@ const main = () => {
         </section>
       <footer class="game-footer">
       </footer>
-      </section>
     `);
 
     const width = document.querySelector('.game-screen').offsetWidth;

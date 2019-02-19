@@ -63,20 +63,9 @@ body {
     justify-content: space-between;
     height: 10vh;
     width:100%;
-    background-color: #111; 
+    background-color: #090a0f; 
     color: yellow;
   }
-
-/*
-.game-screen {
-  width: 95%;
-  height: 85vh;
-}
-*/
-/*
-.fondo {
-  background-image: url('../images/fondo.jpg')
-}*/
 
 .game-footer {
   height: 5vh;
@@ -84,7 +73,9 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  background-color: #090a0f;
 }
+
 
 
 /*PROVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaa*/

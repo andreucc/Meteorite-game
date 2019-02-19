@@ -29,10 +29,10 @@ class Shoot {
   }
 
   checkShootEnemy(enemy) {
-    const collideRight = this.x + this.sizeX / 2 > enemy.x - enemy.size/ 2;
-    const collideLeft = this.x - this.sizeX / 2 < enemy.x + enemy.size/ 2;
-    const collideTop = this.y - this.sizeY / 2 < enemy.y + enemy.size / 2;
-    const collideBottom = this.y + this.sizeY / 2 > enemy.y - enemy.size / 2;
+    const collideRight = this.x + this.sizeX / 2 > enemy.x - enemy.size /2;
+    const collideLeft = this.x - this.sizeX / 2 < enemy.x + enemy.size /2;
+    const collideTop = this.y - this.sizeY / 2 < enemy.y + enemy.size /2;
+    const collideBottom = this.y + this.sizeY / 2 > enemy.y - enemy.size /2;
 
     if(collideRight && collideLeft && collideTop && collideBottom) {
       return true;
