@@ -1,6 +1,6 @@
 class Shoot {
   constructor(canvas, x, y) {
-    this.sizeX = 30;
+    this.sizeX = 12.5;
     this.sizeY = 30;
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
@@ -29,10 +29,10 @@ class Shoot {
   }
 
   checkShootEnemy(enemy) {
-    const collideRight = this.x + this.sizeX / 2 > enemy.x - enemy.size /2;
-    const collideLeft = this.x - this.sizeX / 2 < enemy.x + enemy.size /2;
-    const collideTop = this.y - this.sizeY / 2 < enemy.y + enemy.size /2;
-    const collideBottom = this.y + this.sizeY / 2 > enemy.y - enemy.size /2;
+    const collideRight = this.x + this.sizeX > enemy.x;
+    const collideLeft = this.x <= enemy.x + enemy.size;
+    const collideTop = this.y <= enemy.y;
+    const collideBottom = this.y + this.sizeY >= enemy.y - enemy.size;
 
     if(collideRight && collideLeft && collideTop && collideBottom) {
       return true;

@@ -7,7 +7,7 @@ class Player{
     this.ctx = this.canvas.getContext('2d');
     this.x = this.canvas.width/2;
     this.y = this.canvas.height-this.size;
-    this.speed = 20;
+    this.speed = 15;
     this.direction = 0;
     this.lives = lives;
     this.imagePlayer = new Image();
@@ -29,9 +29,9 @@ class Player{
   }
 
   checkScreen() {
-    if (this.x <= 0+this.speed){
+    if (this.x <= 0){
       this.x = this.x + this.size/4;
-    } else if (this.x +this.speed+this.size >= this.canvas.width) {
+    } else if (this.x +this.speed+this.size/1.5 >= this.canvas.width) {
       this.x = this.x - this.size/4;
     }
   };

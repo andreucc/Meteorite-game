@@ -97,7 +97,6 @@ class Game{
           this.enemies.splice(this.enemies.indexOf(enemy), 1);
           this.shoots.splice(this.shoots.indexOf(shoot), 1);
           this.score += 1;
-          console.log(this.score)
         } 
       })
     })  
