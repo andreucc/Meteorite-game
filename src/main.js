@@ -14,9 +14,8 @@ const main = () => {
     const splashScreen = buildDom(`
     <section class="splash-screen">
       <h1>Meteorite Game</h1>
-      <h3></h3>
       <div class="player-name">
-            <input type="text" placeholder="Player's Name"></input>
+        <input type="text" placeholder="Player's Name"></input>
       </div>
       <button>Start</button>
     </section>
@@ -125,7 +124,7 @@ const main = () => {
   const buildGameOver = () => {
     const gameOverScreen = buildDom(`
       <section class="game-over">
-        <h1>You fail and the city is destroyed</h1>
+        <h1>GAME OVER</h1>
         <button id="cd">Try it Again</button>  
       </section>
     `);

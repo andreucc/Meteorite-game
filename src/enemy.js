@@ -1,13 +1,13 @@
 'use strict';
 
 class Enemy {
-  constructor(canvas, x) {
+  constructor(canvas, x, speed) {
     this.size = 50;
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
     this.x = x;
     this.y = 0;
-    this.speed = 3;
+    this.speed = speed;
     this.direction = 1;
     this.imageEnemy = new Image();
     this.imageEnemy.src = './images/meteorite.png'

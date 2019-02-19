@@ -18,10 +18,22 @@ class Game{
     
     const loop = () => {
         
-      if(Math.random() > 0.99) {
-        const x = Math.random() * this.canvas.width;
-        this.enemies.push(new Enemy(this.canvas, x));
-      };
+      
+      if (this.score <= 10) {
+        if(Math.random() > 0.99) {
+          const x = Math.random() * this.canvas.width-20;
+          this.enemies.push(new Enemy(this.canvas, x, 3));
+        };
+      } else if (this.score >= 10 && this.score <= 20) {
+        if(Math.random() > 0.99) {
+          const x = Math.random() * this.canvas.width-20;
+          this.enemies.push(new Enemy(this.canvas, x, 5));
+      } else if (this.score > 20) {
+        if(Math.random() > 0.99) {
+          const x = Math.random() * this.canvas.width-20;
+          this.enemies.push(new Enemy(this.canvas, x, 7));
+      }}} 
+        
       this.updateScore()
       this.checkAllCollisions();
       this.updateCanvas();
