@@ -13,11 +13,12 @@ const main = () => {
   const buildSplashScreen = () => {
     const splashScreen = buildDom(`
     <section class="splash-screen">
-      <h1>Meteorite Game</h1>
+      <p class="title">METEOR GAME</p>
       <div class="player-name">
+      <p class="text"> CHOOSE YOUR NAME </p>
         <input type="text" placeholder="Player's Name"></input>
       </div>
-      <button>Start</button>
+      <button class="start">Start</button>
     </section>
     `);
 
@@ -45,15 +46,15 @@ const main = () => {
     const gameScreen = buildDom(`
       <header class="game-header"> 
         <div>
-          <p>Score</p>
+          <p>SCORE</p>
           <p id="score-player">00</p>
         </div>
         <div>
-          <p>Player</p>
+          <p>PLAYER</p>
           <p id="player-name">Anonymous</p>
         </div>
         <div>
-          <p>Lives</p>
+          <p>LIVES</p>
           <p id="player-lives">00</p>
         </div>  
       </header>
@@ -80,7 +81,9 @@ const main = () => {
     canvasElement.setAttribute('height', height);
 
     const game = new Game(canvasElement);
-    game.gameOverCallback(buildGameOver);
+    game.gameOverCallback((score) => {
+      buildGameOver(score);
+    });
 
     game.gameUpdateScore(() => {
        const scorePlayerShow = document.getElementById('score-player');
@@ -121,14 +124,19 @@ const main = () => {
   };
 
   
-  const buildGameOver = () => {
+  const buildGameOver = (scorePlayerShow) => {
     const gameOverScreen = buildDom(`
       <section class="game-over">
-        <h1>GAME OVER</h1>
-        <button id="cd">Try it Again</button>  
-      </section>
+         <p class="title">GAME OVER</p>
+          <div class="final">
+            <span class="text"> YOUR SCORE IS: </span>
+            <span class="text" id="finalScore">score</span>  
+          </div>
+          <button id="">Try it Again</button>
+        </section>
     `);
-
+    const defenderScore = document.getElementById('finalScore');
+    defenderScore.innerHTML = scorePlayerShow;
   
     const restartButton = document.querySelector('button');  
     restartButton.addEventListener('click', buildGameScreen);
@@ -139,3 +147,4 @@ const main = () => {
 
 
 window.addEventListener('load', main);
+

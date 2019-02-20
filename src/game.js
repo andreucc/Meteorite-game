@@ -17,24 +17,20 @@ class Game{
     this.player = new Player(this.canvas, this.lives);
     
     const loop = () => {
-        
-      
-      if (this.score <= 10) {
-        if(Math.random() > 0.99) {
-          const x = Math.random() * this.canvas.width-20;
+            
+      if(Math.random() > 0.99) {
+        const x = Math.random() * this.canvas.width-30;
+        if (this.score <= 10) {
           this.enemies.push(new Enemy(this.canvas, x, 3));
-        };
-      } else if (this.score >= 10 && this.score <= 20) {
-        if(Math.random() > 0.99) {
-          const x = Math.random() * this.canvas.width-20;
-          this.enemies.push(new Enemy(this.canvas, x, 5));
-      } else if (this.score > 20) {
-        if(Math.random() > 0.99) {
-          const x = Math.random() * this.canvas.width-20;
-          this.enemies.push(new Enemy(this.canvas, x, 7));
-      }}} 
+        } else if (this.score >= 10 && this.score <= 20) {
+          this.enemies.push(new Enemy(this.canvas, x, 5)); 
+        } else if (this.score > 20) {
+          this.enemies.push(new Enemy(this.canvas, x, 7)); 
+        }
+      }
+
         
-      this.updateScore()
+      this.updateScore();
       this.checkAllCollisions();
       this.updateCanvas();
       this.clearCanvas();
@@ -98,7 +94,7 @@ class Game{
         this.enemies.splice(this.enemies.indexOf(enemy), 1);
         if (this.player.lives === 0) {
           this.gameOver = true;
-          this.onGameOver();
+          this.onGameOver(this.score);
         }
       }
     });
