@@ -56,7 +56,6 @@ body {
 
 .splash-screen{
   text-align: center; 
-  font-family: Monoton;
 }
 
 .title {  
@@ -85,7 +84,7 @@ body {
     background-color: #090a0f;
     text-align: center;
     font-family: Syncopate;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
   }
 
@@ -98,7 +97,9 @@ body {
   text-align: center;
 }
 
-
+.replay {
+  margin: 0, auto;
+}
 
 /*FONDO CANVAS*/
 

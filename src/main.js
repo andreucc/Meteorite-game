@@ -13,7 +13,7 @@ const main = () => {
   const buildSplashScreen = () => {
     const splashScreen = buildDom(`
     <section class="splash-screen">
-      <p class="title">METEOR GAME</p>
+      <p class="title">METEORITE GAME</p>
       <div class="player-name">
       <p class="text"> CHOOSE YOUR NAME </p>
         <input type="text" placeholder="Player's Name"></input>
@@ -131,8 +131,10 @@ const main = () => {
           <div class="final">
             <span class="text"> YOUR SCORE IS: </span>
             <span class="text" id="finalScore">score</span>  
+            </div> 
+            <div class="replay">
+            <button>Try it Again</button>
           </div>
-          <button id="">Try it Again</button>
         </section>
     `);
     const defenderScore = document.getElementById('finalScore');

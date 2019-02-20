@@ -19,13 +19,15 @@ class Game{
     const loop = () => {
             
       if(Math.random() > 0.99) {
-        const x = Math.random() * this.canvas.width-30;
-        if (this.score <= 10) {
-          this.enemies.push(new Enemy(this.canvas, x, 3));
-        } else if (this.score >= 10 && this.score <= 20) {
-          this.enemies.push(new Enemy(this.canvas, x, 5)); 
-        } else if (this.score > 20) {
-          this.enemies.push(new Enemy(this.canvas, x, 7)); 
+        const x = Math.random() * this.canvas.width;
+          if (x > 50 && x < this.canvas.width-50) {
+          if (this.score <= 10) {
+            this.enemies.push(new Enemy(this.canvas, x, 3));
+          } else if (this.score >= 10 && this.score <= 20) {
+            this.enemies.push(new Enemy(this.canvas, x, 5)); 
+          } else if (this.score > 20) {
+            this.enemies.push(new Enemy(this.canvas, x, 7)); 
+          }
         }
       }
 
