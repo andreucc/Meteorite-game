@@ -133,6 +133,15 @@ const main = () => {
             <span class="text" id="finalScore">score</span>  
             </div> 
             <button class="replay">Try it Again</button>
+            <div class="hallOfFame">
+            <h3>HALL OF FAME</h3> 
+            <ol>
+              <li>LuckyRandom <span>36</span></li>
+              <li>Anonymous <span>31</span></li>
+              <li>Matias<span>28</span></li>
+              <li>Andreu<span>21</span></li>
+            </ol>
+           </div> 
         </section>
     `);
     const defenderScore = document.getElementById('finalScore');

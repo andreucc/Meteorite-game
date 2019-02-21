@@ -101,9 +101,35 @@ body {
   display: block;
   margin: 0 auto;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
+.hallOfFame {
+  font-family: Syncopate;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.hallOfFame h3 {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.hallOfFame ol {
+  width: 20vw;
+  height: 30vh;
+  margin: 0 auto;
+}
+
+.hallOfFame li {
+  line-height: 2rem;
+  text-align: left;
+}
+
+.hallOfFame span {
+  float: right;
+}
 
 /*FONDO CANVAS*/
 
