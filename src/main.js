@@ -136,8 +136,8 @@ const main = () => {
             <div class="hallOfFame">
             <h3>HALL OF FAME</h3> 
             <ol>
-              <li>LuckyRandom <span>36</span></li>
-              <li>Anonymous <span>31</span></li>
+              <li>LuckyRandom<span>36</span></li>
+              <li>Anonymous<span>31</span></li>
               <li>Matias<span>28</span></li>
               <li>Andreu<span>21</span></li>
             </ol>

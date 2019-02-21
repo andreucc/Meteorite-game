@@ -71,7 +71,9 @@ body {
 }
 
 .start {
-  margin-top: 20px;
+  margin-top: 30px;
+  width: 8vw;
+  height: 3vh;
 }
 
 .game-header {
@@ -102,6 +104,8 @@ body {
   margin: 0 auto;
   align-items: center;
   margin-top: 40px;
+  width: 8vw;
+  height: 3vh;
 }
 
 .hallOfFame {
