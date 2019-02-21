@@ -132,9 +132,7 @@ const main = () => {
             <span class="text"> YOUR SCORE IS: </span>
             <span class="text" id="finalScore">score</span>  
             </div> 
-            <div class="replay">
-            <button>Try it Again</button>
-          </div>
+            <button class="replay">Try it Again</button>
         </section>
     `);
     const defenderScore = document.getElementById('finalScore');
