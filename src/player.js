@@ -19,8 +19,6 @@ class Player{
   };
 
   draw() {
-    //this.ctx.fillStyle = 'green';
-    //this.ctx.fillRect(this.x , this.y, this.size, this.size)
     this.ctx.drawImage(this.imagePlayer, this.x, this.y, this.size, this.size)
   }
 

@@ -17,8 +17,6 @@ class Shoot {
   };
 
   draw() {
-    //this.ctx.fillStyle = 'black';
-    //this.ctx.fillRect(this.x, this.y, this.sizeX, this.sizeY);
     this.ctx.drawImage(this.imageShoot, this.x-this.sizeX/2, this.y, this.sizeX, this.sizeY)
   };
 
